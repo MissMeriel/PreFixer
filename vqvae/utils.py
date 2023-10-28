@@ -134,16 +134,22 @@ def load_latent_block():
     return train, val
 
 
-def data_loaders(train_data, val_data, batch_size, shuffle=False):
+def data_loaders(train_data, val_data, batch_size, shuffle=False, num_workers=100):
+    def worker_init_fn(worker_id):
+        np.random.seed(np.random.get_state()[1][0] + worker_id)
 
     train_loader = DataLoader(train_data,
                               batch_size=batch_size,
                               shuffle=True,
-                              pin_memory=True)
+                              pin_memory=True,
+                              num_workers=num_workers, 
+                              worker_init_fn=worker_init_fn)
     val_loader = DataLoader(val_data,
                             batch_size=batch_size,
                             shuffle=True,
-                            pin_memory=True)
+                            pin_memory=True,
+                            num_workers=num_workers, 
+                            worker_init_fn=worker_init_fn)
     return train_loader, val_loader
 
 

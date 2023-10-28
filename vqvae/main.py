@@ -78,8 +78,9 @@ training_data, validation_data, training_loader, validation_loader, x_train_var 
 Set up VQ-VAE model with components defined in ./models/ folder
 """
 model = VQVAE(args.n_hiddens, args.n_residual_hiddens,
-              args.n_residual_layers, args.n_embeddings, args.embedding_dim, args.beta, transf=args.transf, arch_id=args.arch_id).to(device)
-
+              args.n_residual_layers, args.n_embeddings, args.embedding_dim, args.beta, transf=args.transf, arch_id=args.arch_id)
+# model = nn.DataParallel(model)
+model = model.to(device)
 if args.warmstart is not None:
     checkpoint = torch.load(args.warmstart, map_location=device)
     model.load_state_dict(checkpoint["model"])
