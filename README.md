@@ -1,5 +1,8 @@
-# Supervised Universal Transformations
+# Automated Generation of Transformations to Mitigate Sensor Hardware Migration in ADS
 Learning transformations between vision datasets to overcome sensor hardware versioning
+
+paper: [IEEE Robotics and Automation Letters (RA-L)](https://ieeexplore.ieee.org/document/10539233)
+video: [YouTube](https://www.youtube.com/watch?v=t7dW_dZso8s)
 
 ## Overview
 The main idea of this project is to come up with a universal transformation between dataset distributions.
