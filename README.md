@@ -13,6 +13,10 @@ This transformation should preserve several properties of the original dataset:
 
 
 ![camera versioning](figures/camera-versioning.jpg)
+Problem setup
+
+![PreFixer input output](figures/vqvae.jpg)
+Input and output of trained PreFixer
 
 ## Training
 
